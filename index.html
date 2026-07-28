@@ -1,10 +1,546 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Website T1 KPI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SK Tuhin | Inventory Controller KPI Dashboard</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f4f7fb;
+  color:#1f2937;
+}
+
+.header{
+  background:linear-gradient(135deg,#123c69,#1976d2);
+  color:white;
+  padding:25px 35px;
+}
+
+.header h1{
+  font-size:28px;
+  margin-bottom:7px;
+}
+
+.header p{
+  opacity:.9;
+}
+
+.container{
+  max-width:1400px;
+  margin:auto;
+  padding:25px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-bottom:25px;
+}
+
+.card{
+  background:white;
+  padding:22px;
+  border-radius:14px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.card h3{
+  font-size:14px;
+  color:#6b7280;
+  margin-bottom:12px;
+}
+
+.number{
+  font-size:30px;
+  font-weight:bold;
+}
+
+.green{color:#16a34a;}
+.orange{color:#ea580c;}
+.red{color:#dc2626;}
+.blue{color:#2563eb;}
+
+.section{
+  background:white;
+  padding:25px;
+  margin-bottom:25px;
+  border-radius:14px;
+  box-shadow:0 4px 15px rgba(0,0,0,.07);
+}
+
+.section h2{
+  margin-bottom:20px;
+  color:#123c69;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:13px;
+  border-bottom:1px solid #e5e7eb;
+  text-align:left;
+}
+
+th{
+  background:#eef5ff;
+  color:#123c69;
+}
+
+input{
+  width:100%;
+  padding:8px;
+  border:1px solid #d1d5db;
+  border-radius:6px;
+}
+
+.status{
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.achieved{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.warning{
+  background:#fef3c7;
+  color:#92400e;
+}
+
+.action{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.progress{
+  width:100%;
+  background:#e5e7eb;
+  height:10px;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  background:#1976d2;
+}
+
+.button{
+  background:#1976d2;
+  color:white;
+  border:none;
+  padding:11px 20px;
+  border-radius:7px;
+  cursor:pointer;
+  margin-top:15px;
+}
+
+.button:hover{
+  background:#125ca3;
+}
+
+.footer{
+  text-align:center;
+  padding:25px;
+  color:#6b7280;
+}
+
+@media(max-width:900px){
+  .cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .container{
+    padding:15px;
+  }
+
+  table{
+    font-size:12px;
+  }
+
+  th,td{
+    padding:8px;
+  }
+
+  .header{
+    padding:20px;
+  }
+}
+</style>
 </head>
+
 <body>
-  <h1>Website T1 KPI</h1>
-  <p>আমাদের প্রথম ওয়েবসাইট</p>
+
+<header class="header">
+  <h1>📊 Inventory Controller KPI Dashboard</h1>
+  <p>SK Tuhin | Inventory Controller | PRAN Distribution</p>
+</header>
+
+<div class="container">
+
+<!-- SUMMARY -->
+<div class="cards">
+
+  <div class="card">
+    <h3>Overall KPI Score</h3>
+    <div class="number blue" id="overallScore">88%</div>
+    <p class="green">Good Performance</p>
+  </div>
+
+  <div class="card">
+    <h3>Inventory Accuracy</h3>
+    <div class="number green">96%</div>
+    <p>Target ≥ 95%</p>
+  </div>
+
+  <div class="card">
+    <h3>Short / Excess Items</h3>
+    <div class="number orange">12%</div>
+    <p>Need Monitoring</p>
+  </div>
+
+  <div class="card">
+    <h3>Short Date Stock</h3>
+    <div class="number red">8%</div>
+    <p>Action Required</p>
+  </div>
+
+</div>
+
+<!-- KPI TABLE -->
+<div class="section">
+
+<h2>🎯 KPI Performance</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>SL</th>
+<th>KPI</th>
+<th>Target</th>
+<th>Achievement</th>
+<th>Performance</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>01</td>
+<td>Inventory Accuracy</td>
+<td>≥ 95%</td>
+<td>96%</td>
+<td>
+<div class="progress">
+<div class="progress-bar" style="width:96%"></div>
+</div>
+</td>
+<td><span class="status achieved">ACHIEVED</span></td>
+</tr>
+
+<tr>
+<td>02</td>
+<td>Shortage Control</td>
+<td>≤ 2%</td>
+<td>1.5%</td>
+<td>
+<div class="progress">
+<div class="progress-bar" style="width:92%"></div>
+</div>
+</td>
+<td><span class="status achieved">ACHIEVED</span></td>
+</tr>
+
+<tr>
+<td>03</td>
+<td>Excess Stock Control</td>
+<td>≤ 3%</td>
+<td>4%</td>
+<td>
+<div class="progress">
+<div class="progress-bar" style="width:75%"></div>
+</div>
+</td>
+<td><span class="status warning">WARNING</span></td>
+</tr>
+
+<tr>
+<td>04</td>
+<td>Short Date Control</td>
+<td>≤ 2%</td>
+<td>8%</td>
+<td>
+<div class="progress">
+<div class="progress-bar" style="width:45%"></div>
+</div>
+</td>
+<td><span class="status action">ACTION</span></td>
+</tr>
+
+<tr>
+<td>05</td>
+<td>Slow Moving Stock</td>
+<td>≤ 5%</td>
+<td>4%</td>
+<td>
+<div class="progress">
+<div class="progress-bar" style="width:85%"></div>
+</div>
+</td>
+<td><span class="status achieved">ACHIEVED</span></td>
+</tr>
+
+<tr>
+<td>06</td>
+<td>Non Moving Stock</td>
+<td>≤ 2%</td>
+<td>2.5%</td>
+<td>
+<div class="progress">
+<div class="progress-bar" style="width:80%"></div>
+</div>
+</td>
+<td><span class="status warning">WARNING</span></td>
+</tr>
+
+<tr>
+<td>07</td>
+<td>Report Submission</td>
+<td>100%</td>
+<td>100%</td>
+<td>
+<div class="progress">
+<div class="progress-bar" style="width:100%"></div>
+</div>
+</td>
+<td><span class="status achieved">ACHIEVED</span></td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+
+<!-- INVENTORY CONTROL -->
+<div class="section">
+
+<h2>📦 Inventory Control Summary</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Current</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Physical Inventory Accuracy</td>
+<td>≥ 95%</td>
+<td>96%</td>
+<td><span class="status achieved">Good</span></td>
+</tr>
+
+<tr>
+<td>Short Quantity</td>
+<td>≤ 2%</td>
+<td>1.5%</td>
+<td><span class="status achieved">Good</span></td>
+</tr>
+
+<tr>
+<td>Excess Quantity</td>
+<td>≤ 3%</td>
+<td>4%</td>
+<td><span class="status warning">Monitor</span></td>
+</tr>
+
+<tr>
+<td>Short Date Stock</td>
+<td>≤ 2%</td>
+<td>8%</td>
+<td><span class="status action">Immediate Action</span></td>
+</tr>
+
+<tr>
+<td>Slow Moving</td>
+<td>≤ 5%</td>
+<td>4%</td>
+<td><span class="status achieved">Good</span></td>
+</tr>
+
+<tr>
+<td>Non Moving</td>
+<td>≤ 2%</td>
+<td>2.5%</td>
+<td><span class="status warning">Monitor</span></td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- ACTION PLAN -->
+<div class="section">
+
+<h2>⚠️ Action Plan</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Issue</th>
+<th>Priority</th>
+<th>Required Action</th>
+<th>Responsible</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Short Date Stock</td>
+<td><span class="status action">HIGH</span></td>
+<td>Immediate liquidation / sales action</td>
+<td>Sales + IC</td>
+</tr>
+
+<tr>
+<td>Excess Stock</td>
+<td><span class="status warning">MEDIUM</span></td>
+<td>Review stock movement & transfer</td>
+<td>IC + Sales</td>
+</tr>
+
+<tr>
+<td>Non Moving Stock</td>
+<td><span class="status warning">MEDIUM</span></td>
+<td>Prepare liquidation plan</td>
+<td>IC + Sales</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- MONTHLY -->
+<div class="section">
+
+<h2>📅 Monthly KPI Review</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Month</th>
+<th>Target</th>
+<th>Achievement</th>
+<th>Score</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>January</td>
+<td>90%</td>
+<td>91%</td>
+<td class="green">91%</td>
+</tr>
+
+<tr>
+<td>February</td>
+<td>90%</td>
+<td>93%</td>
+<td class="green">93%</td>
+</tr>
+
+<tr>
+<td>March</td>
+<td>90%</td>
+<td>89%</td>
+<td class="orange">89%</td>
+</tr>
+
+<tr>
+<td>April</td>
+<td>90%</td>
+<td>94%</td>
+<td class="green">94%</td>
+</tr>
+
+<tr>
+<td>May</td>
+<td>90%</td>
+<td>92%</td>
+<td class="green">92%</td>
+</tr>
+
+<tr>
+<td>June</td>
+<td>90%</td>
+<td>88%</td>
+<td class="orange">88%</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- NOTES -->
+<div class="section">
+
+<h2>📝 KPI Review Notes</h2>
+
+<ul style="line-height:2; padding-left:20px;">
+<li>Short Date items must be reviewed weekly.</li>
+<li>Slow & Non-Moving stock should have liquidation plans.</li>
+<li>Physical inventory should be reconciled with ERP.</li>
+<li>Short & Excess items should be investigated immediately.</li>
+<li>Monthly KPI performance should be reviewed with management.</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer class="footer">
+© 2026 SK Tuhin | Inventory Controller KPI Dashboard
+</footer>
+
 </body>
 </html>
